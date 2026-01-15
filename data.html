@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>EDITORIAL : Eksperimen Rahasia pada Manusia</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0e0f12;
+      color: #e5e7eb;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: #111827;
+      border-bottom: 1px solid #1f2937;
+    }
+
+    .top {
+      max-width: 1100px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 34px;
+      font-weight: bold;
+      color: #ef4444;
+    }
+
+    .date {
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    .nav {
+      background: #020617;
+      border-top: 1px solid #1f2937;
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      margin: 0;
+      padding: 10px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .nav li {
+      font-size: 13px;
+      color: #d1d5db;
+      cursor: pointer;
+    }
+
+    /* ===== CONTENT ===== */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 24px 20px;
+      display: grid;
+      grid-template-columns: 2.5fr 1fr;
+      gap: 24px;
+    }
+
+    .breadcrumb {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 10px 0;
+      color: #fca5a5;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 20px;
+    }
+
+    .article img {
+      width: 100%;
+      border-radius: 6px;
+      margin: 20px 0;
+      filter: grayscale(40%) contrast(1.1);
+    }
+
+    .article p {
+      line-height: 1.7;
+      font-size: 15px;
+      color: #d1d5db;
+      margin-bottom: 16px;
+    }
+
+    .warning {
+      background: #7f1d1d;
+      padding: 12px;
+      border-left: 4px solid #ef4444;
+      font-size: 13px;
+      margin: 20px 0;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      background: #020617;
+      border: 1px solid #1f2937;
+      border-radius: 6px;
+      padding: 16px;
+    }
+
+    .sidebar h3 {
+      font-size: 14px;
+      margin-top: 0;
+      color: #f87171;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      font-size: 13px;
+      color: #d1d5db;
+    }
+
+    .sidebar li {
+      padding: 6px 0;
+      border-bottom: 1px dashed #1f2937;
+    }
+
+    .topbar {
+      background: #202124;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #303134;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .dots { display: flex; gap: 6px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .r { background: #ff5f56; }
+    .y { background: #ffbd2e; }
+    .g { background: #27c93f; }
+
+    .tab {
+      background: #303134;
+      padding: 6px 14px;
+      border-radius: 8px 8px 0 0;
+      font-size: 13px;
+    }
+
+    .address {
+      background: #303134;
+      padding: 8px 12px;
+      border-bottom: 1px solid #3c4043;
+      position: sticky;
+      top: 40px;
+      z-index: 999;
+    }
+
+    .address input {
+      width: 100%;
+      background: #202124;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 14px;
+      color: #9aa0a6;
+    }
+  </style>
+</head>
+<body>
+    <div class="topbar">
+  <div class="dots">
+    <div class="dot r"></div>
+    <div class="dot y"></div>
+    <div class="dot g"></div>
+  </div>
+  <div class="tab">Dark Archive</div>
+</div>
+
+<div class="address">
+  <input value="darkweb://classified/images" disabled />
+</div>
+  <div class="header">
+    <div class="top">
+      <div class="logo">Dark Web</div>
+      <div class="date">Kamis, Januari 15, 2026</div>
+    </div>
+    <div class="nav">
+      <ul>
+        <li>LAPORAN UTAMA</li>
+        <li>KEAMANAN</li>
+        <li>TEKNOLOGI</li>
+        <li>INTERNASIONAL</li>
+        <li>LIPUTAN KHUSUS</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="article">
+      <div class="breadcrumb">Home › Laporan Utama</div>
+      <h1>EDITORIAL : Eksperimen Rahasia terhadap Manusia</h1>
+      <div class="meta">oleh Organisasi Khusus — 17 Maret 2015 • Classified</div>
+
+      <img src="https://cdn.pixabay.com/photo/2020/06/05/19/02/chamber-5264172_640.jpg" />
+
+      <div class="warning">
+        ⚠ Artikel ini merupakan simulasi fiktif untuk kepentingan cerita dan visual. Tidak mewakili kejadian nyata.
+      </div>
+
+      <p>Laporan internal yang bocor ke jaringan gelap mengungkap adanya dugaan eksperimen biologis dan psikologis terhadap manusia yang dilakukan secara tertutup. Subjek uji coba disebut berasal dari berbagai latar belakang, dengan identitas yang dihapus dari sistem sipil.</p>
+
+      <p>Dokumen yang diperoleh menunjukkan adanya pengujian zat eksperimental, manipulasi memori, serta simulasi tekanan ekstrem yang dilakukan di fasilitas bawah tanah. Tidak ada persetujuan resmi yang tercatat dalam arsip publik.</p>
+
+      <p>Sumber anonim menyebutkan bahwa eksperimen ini diklaim sebagai upaya "keamanan nasional", namun dampak jangka panjang terhadap subjek masih belum diketahui hingga kini.</p>
+
+      <p>Hingga laporan ini diturunkan, pihak berwenang belum memberikan pernyataan resmi terkait keberadaan fasilitas maupun kebenaran dokumen yang beredar.</p>
+    </div>
+
+    <div class="sidebar">
+      <h3>DOKUMEN TERKAIT</h3>
+      <ul>
+        <li>Proyek Hikigaya</li>
+        <li>Fasilitas Bawah Tanah Sektor 7</li>
+        <li>Subjek X-113 (Status: Unknown) & Subjek X-114 (Status: Unknown)</li>
+        <li>Eksperimen Memori Sintetis</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
