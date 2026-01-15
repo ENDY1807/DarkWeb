@@ -1,272 +1,288 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Dark Web Archive</title>
+    <meta charset="UTF-8" />
+    <title>Dark Web Archive</title>
 
-  <style>
-    * { box-sizing: border-box; }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    body {
-      margin: 0;
-      background: #0b0d10;
-      font-family: Arial, sans-serif;
-      color: #e5e7eb;
-    }
+        body {
+            margin: 0;
+            background: #0b0d10;
+            font-family: Arial, sans-serif;
+            color: #e5e7eb;
+        }
 
-    /* ===== BROWSER UI ===== */
-    .topbar {
-      background: #202124;
-      padding: 6px 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-bottom: 1px solid #303134;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+        .topbar {
+            background: #202124;
+            padding: 6px 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #303134;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    .dots { display: flex; gap: 6px; }
-    .dot { width: 12px; height: 12px; border-radius: 50%; }
-    .r { background: #ff5f56; }
-    .y { background: #ffbd2e; }
-    .g { background: #27c93f; }
+        .dots {
+            display: flex;
+            gap: 6px;
+        }
 
-    .tab {
-      background: #303134;
-      padding: 6px 14px;
-      border-radius: 8px 8px 0 0;
-      font-size: 13px;
-    }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
 
-    .address {
-      background: #303134;
-      padding: 8px 12px;
-      border-bottom: 1px solid #3c4043;
-      position: sticky;
-      top: 40px;
-      z-index: 999;
-    }
+        .r {
+            background: #ff5f56;
+        }
 
-    .address input {
-      width: 100%;
-      background: #202124;
-      border: none;
-      border-radius: 20px;
-      padding: 8px 14px;
-      color: #9aa0a6;
-    }
+        .y {
+            background: #ffbd2e;
+        }
 
-    /* ===== CONTENT ===== */
-    .container { padding: 20px; }
+        .g {
+            background: #27c93f;
+        }
 
-    h1 {
-      font-size: 22px;
-      color: #ff5555;
-    }
+        .tab {
+            background: #303134;
+            padding: 6px 14px;
+            border-radius: 8px 8px 0 0;
+            font-size: 13px;
+        }
 
-    .note {
-      font-size: 12px;
-      color: #9aa0a6;
-      margin-bottom: 14px;
-    }
+        .address {
+            background: #303134;
+            padding: 8px 12px;
+            border-bottom: 1px solid #3c4043;
+            position: sticky;
+            top: 40px;
+            z-index: 999;
+        }
 
-    #search {
-      width: 100%;
-      padding: 10px 14px;
-      margin-bottom: 20px;
-      background: #111315;
-      border: 1px solid #2a2d31;
-      border-radius: 6px;
-      color: #e5e7eb;
-    }
+        .address input {
+            width: 100%;
+            background: #202124;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 14px;
+            color: #9aa0a6;
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 16px;
-    }
+        .container {
+            padding: 20px;
+        }
 
-    .card {
-      background: #111315;
-      border: 1px solid #2a2d31;
-      border-radius: 8px;
-      overflow: hidden;
-    }
+        h1 {
+            font-size: 22px;
+            color: #ff5555;
+        }
 
-    .card.clickable {
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+        .note {
+            font-size: 12px;
+            color: #9aa0a6;
+            margin-bottom: 14px;
+        }
 
-    .card.clickable:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 25px rgba(255,0,0,0.3);
-    }
+        #search {
+            width: 100%;
+            padding: 10px 14px;
+            margin-bottom: 20px;
+            background: #111315;
+            border: 1px solid #2a2d31;
+            border-radius: 6px;
+            color: #e5e7eb;
+        }
 
-    .card img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      filter: brightness(0.65) contrast(1.2);
-    }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
 
-    .info {
-      padding: 10px;
-      font-size: 13px;
-    }
+        .card {
+            background: #111315;
+            border: 1px solid #2a2d31;
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
-    .tag {
-      display: inline-block;
-      font-size: 11px;
-      padding: 2px 6px;
-      background: #ff5555;
-      color: #000;
-      border-radius: 4px;
-      margin-bottom: 6px;
-    }
-  </style>
+        .card.clickable {
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card.clickable:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+        }
+
+        .card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            filter: brightness(0.65) contrast(1.2);
+        }
+
+        .info {
+            padding: 10px;
+            font-size: 13px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 6px;
+            background: #ff5555;
+            color: #000;
+            border-radius: 4px;
+            margin-bottom: 6px;
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- ===== BROWSER ===== -->
-<div class="topbar">
-  <div class="dots">
-    <div class="dot r"></div>
-    <div class="dot y"></div>
-    <div class="dot g"></div>
-  </div>
-  <div class="tab">Dark Archive</div>
-</div>
+    <div class="topbar">
+        <div class="dots">
+            <div class="dot r"></div>
+            <div class="dot y"></div>
+            <div class="dot g"></div>
+        </div>
+        <div class="tab">Dark Archive</div>
+    </div>
 
-<div class="address">
-  <input value="darkweb://classified/images" disabled />
-</div>
+    <div class="address">
+        <input value="darkweb://classified/images" disabled />
+    </div>
 
-<!-- ===== PAGE ===== -->
-<div class="container">
-  <h1>CLASSIFIED IMAGE DATABASE</h1>
-  <div class="note">⚠ Konten fiktif • simulasi dark web</div>
+    <div class="container">
+        <h1>CLASSIFIED IMAGE DATABASE</h1>
+        <div class="note">⚠ Konten fiktif • simulasi dark web</div>
 
-  <input id="search" placeholder="Search classified data..." />
+        <input id="search" placeholder="Search classified data..." />
 
-  <div class="grid" id="grid"></div>
-</div>
+        <div class="grid" id="grid"></div>
+    </div>
 
-<script>
-  const tags = [
-    "ALIEN SIGHTING",
-    "BIO LAB",
-    "FORBIDDEN FILE",
-    "UNKNOWN ENTITY",
-    "REDACTED DATA",
-    "ARCHIVED"
-  ];
+    <script>
+        const tags = [
+            "ALIEN SIGHTING",
+            "BIO LAB",
+            "FORBIDDEN FILE",
+            "UNKNOWN ENTITY",
+            "REDACTED DATA",
+            "ARCHIVED"
+        ];
 
-  const titles = [
-    "Zona Terlarang",
-    "File Tidak Dikenal",
-    "Arsip Kota Hilang",
-    "Proyek ████",
-    "Underground Sector",
-    "Black Site Record"
-  ];
+        const titles = [
+            "Zona Terlarang",
+            "File Tidak Dikenal",
+            "Arsip Kota Hilang",
+            "Proyek ████",
+            "Underground Sector",
+            "Black Site Record"
+        ];
 
-  const infos = [
-    "Encrypted file",
-    "Access restricted",
-    "Corrupted data",
-    "File incomplete",
-    "No clearance",
-    "Metadata lost"
-  ];
+        const infos = [
+            "Encrypted file",
+            "Access restricted",
+            "Corrupted data",
+            "File incomplete",
+            "No clearance",
+            "Metadata lost"
+        ];
 
-  const grid = document.getElementById("grid");
-  const search = document.getElementById("search");
+        const grid = document.getElementById("grid");
+        const search = document.getElementById("search");
 
-  let loading = false;
-  let specialCreated = false;
-  let totalCreated = 0;
+        let loading = false;
 
-  // PASTI muncul tapi random (antara 20–100)
-  const guaranteedIndex = Math.floor(Math.random() * 80) + 20;
+        // posisi random eksperimen manusia (selalu ada)
+        let specialIndex = Math.floor(Math.random() * 30);
 
-  function createCard(isSpecial = false) {
-    const card = document.createElement("div");
-    card.className = "card";
+        function createCard(isSpecial = false) {
+            const card = document.createElement("div");
+            card.className = "card";
 
-    const img = document.createElement("img");
-    const info = document.createElement("div");
-    info.className = "info";
+            const img = document.createElement("img");
+            const info = document.createElement("div");
+            info.className = "info";
 
-    const tag = document.createElement("div");
-    tag.className = "tag";
+            const tag = document.createElement("div");
+            tag.className = "tag";
 
-    const text = document.createElement("div");
+            const text = document.createElement("div");
 
-    if (isSpecial) {
-      card.classList.add("clickable");
-      tag.textContent = "EKSPERIMEN MANUSIA";
-      text.textContent = "Dokumen rahasia • klik untuk membuka";
-      img.src = "https://cdn.pixabay.com/photo/2020/06/05/19/02/chamber-5264172_640.jpg";
+            if (isSpecial) {
+                card.classList.add("clickable");
+                tag.textContent = "EKSPERIMEN MANUSIA";
+                text.textContent = "Dokumen rahasia • klik untuk membuka";
+                img.src = "https://cdn.pixabay.com/photo/2020/06/05/19/02/chamber-5264172_640.jpg";
 
-      card.onclick = () => {
-        window.location.href = "data.html";
-      };
-    } else {
-      img.src = `https://picsum.photos/400/300?random=${Math.floor(Math.random()*10000)}`;
-      tag.textContent = tags[Math.floor(Math.random()*tags.length)];
-      text.textContent =
-        titles[Math.floor(Math.random()*titles.length)] +
-        " • " +
-        infos[Math.floor(Math.random()*infos.length)];
-    }
+                card.onclick = () => {
+                    window.location.href = "data.html";
+                };
+            } else {
+                img.src = `https://picsum.photos/400/300?random=${Math.floor(Math.random() * 10000)}`;
+                tag.textContent = tags[Math.floor(Math.random() * tags.length)];
+                text.textContent =
+                    titles[Math.floor(Math.random() * titles.length)] +
+                    " • " +
+                    infos[Math.floor(Math.random() * infos.length)];
+            }
 
-    info.appendChild(tag);
-    info.appendChild(text);
-    card.appendChild(img);
-    card.appendChild(info);
-    grid.appendChild(card);
-  }
+            info.appendChild(tag);
+            info.appendChild(text);
+            card.appendChild(img);
+            card.appendChild(info);
+            grid.appendChild(card);
+        }
 
-  function loadMore(count = 20) {
-    if (loading) return;
-    loading = true;
+        function loadMore(count = 20, isInitial = false) {
+            if (loading) return;
+            loading = true;
 
-    for (let i = 0; i < count; i++) {
-      if (!specialCreated && totalCreated === guaranteedIndex) {
-        createCard(true);
-        specialCreated = true;
-      } else {
-        createCard();
-      }
-      totalCreated++;
-    }
+            for (let i = 0; i < count; i++) {
+                if (isInitial && i === specialIndex) {
+                    createCard(true);
+                } else {
+                    createCard();
+                }
+            }
 
-    loading = false;
-  }
+            loading = false;
+        }
 
-  // load awal
-  loadMore(30);
+        // load awal (eksperimen selalu muncul)
+        loadMore(30, true);
 
-  // infinite scroll
-  window.addEventListener("scroll", () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
-      loadMore();
-    }
-  });
+        // infinite scroll
+        window.addEventListener("scroll", () => {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
+                loadMore();
+            }
+        });
 
-  // search
-  search.addEventListener("input", () => {
-    const key = search.value.toLowerCase();
-    document.querySelectorAll(".card").forEach(card => {
-      card.style.display = card.innerText.toLowerCase().includes(key)
-        ? "block"
-        : "none";
-    });
-  });
-</script>
+        // search
+        search.addEventListener("input", () => {
+            const key = search.value.toLowerCase();
+            document.querySelectorAll(".card").forEach(card => {
+                card.style.display = card.innerText.toLowerCase().includes(key)
+                    ? "block"
+                    : "none";
+            });
+        });
+    </script>
 
 </body>
+
 </html>
